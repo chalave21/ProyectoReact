@@ -1,0 +1,11 @@
+.item-list-container {
+  text-align: center;
+  margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Color del texto */
+  /* Agrega cualquier otro estilo deseado para el saludo */
+}

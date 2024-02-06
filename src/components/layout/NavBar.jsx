@@ -1,18 +1,36 @@
-import React from "react";
-import Cartwidget from "../common/Cartwidget";
-
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import "../layout/NavBar.css";
+import Cartwidget from "../common/Cartwidget";
 
 export default function NavBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
+    <AppBar position="static">
+      <Toolbar className="navbar-container">
+        <div id="divLogo" className="logo"></div>
+        <div id="divItems" className="nav-items">
+          <ul>
+            <li>
+              <a href="#" className="nav-link">
+                Mujeres
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link">
+                Hombres
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link">
+                Kids
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="divCartWidget" className="cart-widget">
           <Cartwidget />
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }

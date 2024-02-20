@@ -1,7 +1,7 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import "../layout/NavBar.css";
-import Cartwidget from "../common/Cartwidget";
+import "./NavBar.css";
+import Cartwidget from "../../common/CartWidgetContainer/Cartwidget";
 
 export default function NavBar() {
   return (

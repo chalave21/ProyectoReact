@@ -14,9 +14,7 @@ function ItemListContainer({ greeting }) {
   }, []);
   console.log(items);
 
-  return (
-    <>{items.length > 0 && <ItemList saludo={greeting} items={items} />} </>
-  );
+  return <ItemList saludo={greeting} items={items} />;
 }
 
 export default ItemListContainer;

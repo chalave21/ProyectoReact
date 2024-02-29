@@ -7,6 +7,9 @@
   width: 300px;
   margin: 10px;
 }
+.card:hover {
+  cursor: pointer;
+}
 
 .card img {
   width: 100%;

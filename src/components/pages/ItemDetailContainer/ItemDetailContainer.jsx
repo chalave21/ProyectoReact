@@ -5,16 +5,19 @@ import { useParams } from "react-router";
 
 function ItemDetailContainer() {
   const { id } = useParams();
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState({});
 
   useEffect(() => {
     if (products) {
-      const product = products.find((p) => p.id == id);
+      const product = products.find((p) => {
+        return p.id == parseInt(id);
+      });
+      setItem(product);
       console.log(product);
     }
   }, [id]);
 
-  return <div>ItemDetailContainer</div>;
+  return <ItemDetail item={item} />;
 }
 
 export default ItemDetailContainer;

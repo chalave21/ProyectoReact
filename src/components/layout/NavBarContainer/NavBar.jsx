@@ -2,6 +2,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import "./NavBar.css";
 import Cartwidget from "../../common/CartWidgetContainer/Cartwidget";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -11,17 +12,17 @@ export default function NavBar() {
         <div id="divItems" className="nav-items">
           <ul>
             <li>
-              <a href="#" className="nav-link">
+              <Link to="category/mujeres" className="nav-link">
                 Mujeres
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <a href="/category/hombres" className="nav-link">
                 Hombres
               </a>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <a href="/category/kids" className="nav-link">
                 Kids
               </a>
             </li>

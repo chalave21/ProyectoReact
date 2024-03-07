@@ -8,13 +8,19 @@ function ItemDetailContainer() {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    if (products) {
-      const product = products.find((p) => {
-        return p.id == parseInt(id);
-      });
-      setItem(product);
-      console.log(product);
-    }
+    const tarea = new Promise((res, err) => {
+      if (products) {
+        const product = products.find((p) => {
+          return p.id == parseInt(id);
+        });
+        res(product);
+        err(console.log("No se encontro el producto"));
+      }
+    });
+    tarea.then((res) => {
+      setItem(res);
+    });
+    tarea.catch((err) => console.log(err));
   }, [id]);
 
   return <ItemDetail item={item} />;

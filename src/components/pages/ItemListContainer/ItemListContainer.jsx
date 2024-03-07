@@ -23,7 +23,6 @@ function ItemListContainer({ greeting }) {
       setItems(res);
     });
   }, [category]);
-  console.log(items);
 
   return <ItemList saludo={greeting} items={items} />;
 }

@@ -41,7 +41,9 @@ export default function NavBar() {
           </ul>
         </div>
         <div id="divCartWidget" className="cart-widget">
-          <Cartwidget />
+          <Link to="/Cart" className="nav-link">
+            <Cartwidget />
+          </Link>
         </div>
       </Toolbar>
     </AppBar>

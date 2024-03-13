@@ -9,18 +9,19 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <ItemListContainer greeting="Saludos desde ItemListContainer" />
-            }
-          />
-          <Route path="/category/:category" element={<ItemListContainer />} />
-          <Route path="/Count" element={<ItemCountContainer />} />
-          <Route path="/Detail/:id" element={<ItemDetailContainer />} />
-          <Route path="/Cart" element={<CartContainer />} />
+          <Route element={<NavBar />}>
+            <Route
+              path="/"
+              element={
+                <ItemListContainer greeting="Saludos desde ItemListContainer" />
+              }
+            />
+            <Route path="/category/:category" element={<ItemListContainer />} />
+            <Route path="/Count" element={<ItemCountContainer />} />
+            <Route path="/Detail/:id" element={<ItemDetailContainer />} />
+            <Route path="/Cart" element={<CartContainer />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

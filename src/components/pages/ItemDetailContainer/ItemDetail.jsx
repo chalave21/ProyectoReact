@@ -1,8 +1,9 @@
 import React from "react";
 import ProductCard from "../../common/ProductCard/ProductCard";
 import "./ItemDetailContainer.css";
+import ItemCountContainer from "../../common/ItemCountContainer/ItemCountContainer";
 
-function ItemDetail({ item }) {
+function ItemDetail({ item, onAdd }) {
   return (
     <>
       <div className="item-list-container">
@@ -15,6 +16,7 @@ function ItemDetail({ item }) {
           categories={item.categories}
           stock={item.stock}
         />
+        <ItemCountContainer onAdd={onAdd} />
       </div>
     </>
   );

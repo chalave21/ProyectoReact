@@ -8,22 +8,31 @@ function ItemDetailContainer() {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    const tarea = new Promise((res, err) => {
+    const tarea = new Promise((res, rej) => {
       if (products) {
         const product = products.find((p) => {
-          return p.id == parseInt(id);
+          return p.id === parseInt(id);
         });
-        res(product);
-        err(console.log("No se encontro el producto"));
+        if (product) {
+          res(product);
+        } else {
+          rej(new Error("No se encontró el producto"));
+        }
       }
     });
-    tarea.then((res) => {
-      setItem(res);
-    });
-    tarea.catch((err) => console.log(err));
+
+    tarea
+      .then((res) => {
+        setItem(res);
+      })
+      .catch((err) => console.log(err));
   }, [id]);
 
-  return <ItemDetail item={item} />;
+  const onAdd = (cantidad) => {
+    console.log(item);
+  };
+
+  return <ItemDetail item={item} onAdd={onAdd} />;
 }
 
 export default ItemDetailContainer;

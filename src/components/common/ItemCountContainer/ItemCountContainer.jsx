@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import ItemCount from "./ItemCount";
-function CountContainer() {
+import { React, useState } from "react";
+import Count from "./ItemCount";
+
+function CountContainer({ onAdd }) {
   const [item, setItem] = useState(1);
 
   function addOne() {
@@ -14,7 +15,7 @@ function CountContainer() {
       setItem(item - 1);
     }
   }
-  return <ItemCount addOne={addOne} subOne={subOne} count={item} />;
+  return <Count addOne={addOne} subOne={subOne} count={item} onAdd={onAdd} />;
 }
 
 export default CountContainer;

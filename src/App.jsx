@@ -4,13 +4,14 @@ import ItemCountContainer from "./components/common/ItemCountContainer/ItemCount
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/pages/ItemDetailContainer/ItemDetailContainer";
 import CartContainer from "./components/pages/CartContainer/CartContainer";
+import { Layout } from "./components/layout/NavBarContainer/Layout";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<NavBar />}>
+          <Route element={<Layout />}>
             <Route
               path="/"
               element={

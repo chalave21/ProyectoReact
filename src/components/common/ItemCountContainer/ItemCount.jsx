@@ -6,7 +6,7 @@ function Count({ addOne, subOne, count, onAdd }) {
         <button onClick={addOne}>+</button>
         <h4>{count}</h4>
         <button onClick={subOne}>-</button>
-        <button onClick={onAdd} variant="outlined">
+        <button onClick={() => onAdd(count)} variant="outlined">
           agregar al carrito
         </button>
       </div>

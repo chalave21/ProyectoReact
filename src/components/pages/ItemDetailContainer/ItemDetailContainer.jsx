@@ -29,7 +29,11 @@ function ItemDetailContainer() {
   }, [id]);
 
   const onAdd = (cantidad) => {
-    console.log(item);
+    let productInfo = {
+      ...item,
+      quantity: cantidad,
+    };
+    console.log(productInfo);
   };
 
   return <ItemDetail item={item} onAdd={onAdd} />;

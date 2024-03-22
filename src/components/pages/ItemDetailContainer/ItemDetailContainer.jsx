@@ -8,7 +8,9 @@ import { CartContext } from "../../context/CartContext";
 function ItemDetailContainer() {
   const { id } = useParams();
   const [item, setItem] = useState({});
-  const { addCart } = useContext(CartContext);
+  const { addCart, getTotalQuantityById } = useContext(CartContext);
+
+  let total = getTotalQuantityById(+id);
 
   useEffect(() => {
     const tarea = new Promise((res, rej) => {
@@ -39,7 +41,7 @@ function ItemDetailContainer() {
     addCart(productInfo);
   };
 
-  return <ItemDetail item={item} onAdd={onAdd} />;
+  return <ItemDetail item={item} onAdd={onAdd} total={total} />;
 }
 
 export default ItemDetailContainer;

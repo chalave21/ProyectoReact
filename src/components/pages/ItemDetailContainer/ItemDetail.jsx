@@ -3,7 +3,7 @@ import ProductCard from "../../common/ProductCard/ProductCard";
 import "./ItemDetailContainer.css";
 import ItemCountContainer from "../../common/ItemCountContainer/ItemCountContainer";
 
-function ItemDetail({ item, onAdd }) {
+function ItemDetail({ item, onAdd, total }) {
   return (
     <>
       <div className="item-list-container">
@@ -16,7 +16,7 @@ function ItemDetail({ item, onAdd }) {
           categories={item.categories}
           stock={item.stock}
         />
-        <ItemCountContainer onAdd={onAdd} />
+        <ItemCountContainer onAdd={onAdd} total={total} stock={item.stock} />
       </div>
     </>
   );

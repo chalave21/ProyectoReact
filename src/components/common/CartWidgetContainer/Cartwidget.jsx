@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 function Cartwidget() {
-  const { cart } = useContext(CartContext);
+  const { getTotalItem } = useContext(CartContext);
+  let total = getTotalItem();
   return (
     <div>
       <AddShoppingCartIcon />
-      <p>{cart.length}</p>
+      <p>{total}</p>
     </div>
   );
 }

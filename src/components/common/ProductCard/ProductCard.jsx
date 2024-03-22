@@ -26,16 +26,16 @@ export function ProductCard({
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Descripción: {description}
+            <span>Descripción:</span> {description}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Precio: ${price}
+            <span>Precio:</span> ${price}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Stock: {stock}
+            <span>Stock:</span> {stock}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Categorías: {categories && categories.join(", ")}
+            <span>Categorías:</span> {categories && categories.join(", ")}
           </Typography>
         </CardContent>
       </Card>

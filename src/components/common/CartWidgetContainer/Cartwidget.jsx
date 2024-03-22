@@ -1,15 +1,15 @@
-import React from 'react'
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 function Cartwidget() {
+  const { cart } = useContext(CartContext);
   return (
     <div>
-    <AddShoppingCartIcon/>
-    <p>10</p>
+      <AddShoppingCartIcon />
+      <p>{cart.length}</p>
     </div>
-  
-    
-  )
+  );
 }
 
-export default Cartwidget
+export default Cartwidget;

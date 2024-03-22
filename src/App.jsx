@@ -5,27 +5,33 @@ import ItemDetailContainer from "./components/pages/ItemDetailContainer/ItemDeta
 import CartContainer from "./components/pages/CartContainer/CartContainer";
 import { Layout } from "./components/layout/NavBarContainer/Layout";
 import CheckoutContainer from "./components/pages/Checkout/CheckoutContainer";
+import CartContextProvider from "./components/context/CartContext";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route
-              path="/"
-              element={
-                <ItemListContainer greeting="Saludos desde ItemListContainer" />
-              }
-            />
-            <Route path="/category/:category" element={<ItemListContainer />} />
-            <Route path="/Count" element={<ItemCountContainer />} />
-            <Route path="/Detail/:id" element={<ItemDetailContainer />} />
-            <Route path="/Cart" element={<CartContainer />} />
-            <Route path="/Checkout" element={<CheckoutContainer />} />
-            <Route path="*" element={<h1>404 NOT FOUND</h1>} />
-          </Route>
-        </Routes>
+        <CartContextProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route
+                path="/"
+                element={
+                  <ItemListContainer greeting="Saludos desde ItemListContainer" />
+                }
+              />
+              <Route
+                path="/category/:category"
+                element={<ItemListContainer />}
+              />
+              <Route path="/Count" element={<ItemCountContainer />} />
+              <Route path="/Detail/:id" element={<ItemDetailContainer />} />
+              <Route path="/Cart" element={<CartContainer />} />
+              <Route path="/Checkout" element={<CheckoutContainer />} />
+              <Route path="*" element={<h1>404 NOT FOUND</h1>} />
+            </Route>
+          </Routes>
+        </CartContextProvider>
       </BrowserRouter>
     </>
   );

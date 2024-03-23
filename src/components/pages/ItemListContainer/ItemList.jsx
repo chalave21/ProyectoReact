@@ -6,7 +6,6 @@ function ItemList({ saludo, items }) {
   return (
     <>
       {<p className="greeting">{saludo}</p>}
-
       <div className="item-list-container">
         {items.map(
           ({ id, title, img, description, price, stock, categories }) => (

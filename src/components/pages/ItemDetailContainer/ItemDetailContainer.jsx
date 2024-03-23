@@ -4,33 +4,29 @@ import { products } from "../../../productsMock";
 import { useParams } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { db } from "../../../firebaseConfig";
+import { collection, doc, getDoc } from "firebase/firestore";
+import Skeleton from "@mui/material/Skeleton";
+import "../../common/skeleton/skeleton.css";
 
 function ItemDetailContainer() {
   const { id } = useParams();
   const [item, setItem] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { addCart, getTotalQuantityById } = useContext(CartContext);
 
-  let total = getTotalQuantityById(+id);
+  let total = getTotalQuantityById(id);
 
   useEffect(() => {
-    const tarea = new Promise((res, rej) => {
-      if (products) {
-        const product = products.find((p) => {
-          return p.id === parseInt(id);
-        });
-        if (product) {
-          res(product);
-        } else {
-          rej(new Error("No se encontró el producto"));
-        }
-      }
-    });
+    setIsLoading(true);
 
-    tarea
+    let productsCollection = collection(db, "products");
+    let refDoc = doc(productsCollection, id);
+    getDoc(refDoc)
       .then((res) => {
-        setItem(res);
+        setItem({ ...res.data(), id: res.id });
       })
-      .catch((err) => console.log(err));
+      .finally(() => setIsLoading(false));
   }, [id]);
 
   const onAdd = (cantidad) => {
@@ -41,7 +37,24 @@ function ItemDetailContainer() {
     addCart(productInfo);
   };
 
-  return <ItemDetail item={item} onAdd={onAdd} total={total} />;
+  return (
+    <>
+      {isLoading ? (
+        <>
+          <div className="pageContainer ">
+            <div className="skeletonContainer">
+              <Skeleton variant="rectangular" width={300} height={250} />
+              <Skeleton variant="rectangular" width={300} height={250} />
+              <Skeleton variant="rectangular" width={300} height={250} />
+              <Skeleton variant="rectangular" width={300} height={250} />
+            </div>
+          </div>
+        </>
+      ) : (
+        <ItemDetail item={item} onAdd={onAdd} total={total} />
+      )}
+    </>
+  );
 }
 
 export default ItemDetailContainer;

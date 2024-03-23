@@ -35,7 +35,7 @@ export function ProductCard({
             <span>Stock:</span> {stock}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <span>Categorías:</span> {categories && categories.join(", ")}
+            <span>Categorías:</span> {categories}
           </Typography>
         </CardContent>
       </Card>

@@ -57,6 +57,14 @@ function CartContextProvider({ children }) {
     }
   };
 
+  const getTotalPrice = () => {
+    let total = cart.reduce((acc, elemento) => {
+      return acc + elemento.quantity * elemento.price;
+    }, 0);
+
+    return total;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -66,6 +74,7 @@ function CartContextProvider({ children }) {
         removeById,
         getTotalItem,
         getTotalQuantityById,
+        getTotalPrice,
       }}
     >
       {children}

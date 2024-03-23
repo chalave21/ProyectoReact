@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import { products } from "../../../productsMock";
 import { useParams } from "react-router";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -15,15 +14,15 @@ function ItemListContainer({ greeting }) {
   useEffect(() => {
     setIsLoading(true);
     let productsCollection = collection(db, "products");
-    let consulta;
+    let consulta = productsCollection; // Asigna la colección por defecto
+
     if (category) {
       let productsCollectionFiltered = query(
         productsCollection,
         where("categories", "==", category)
       );
-      consulta = productsCollectionFiltered;
+      consulta = productsCollectionFiltered; // Si hay una categoría, asigna la colección filtrada
     }
-    consulta = productsCollection;
 
     getDocs(consulta)
       .then((res) => {
@@ -33,17 +32,7 @@ function ItemListContainer({ greeting }) {
         setItems(arrayDecrypted);
       })
       .finally(() => setIsLoading(false));
-
-    // getDocs(productsCollectionFiltered)
-    //   .then((res) => {
-    //     let arrayDecrypted = res.docs.map((e) => {
-    //       return { ...e.data(), id: e.id };
-    //     });
-    //     setItems(arrayDecrypted);
-    //   })
-    //   .finally(() => setIsLoading(false));
   }, [category]);
-
   return (
     <>
       {isLoading ? (

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { products } from "../../../productsMock";
 import { useParams } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";

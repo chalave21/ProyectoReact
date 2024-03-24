@@ -1,6 +1,6 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import "./NavBar.css";
+import "./NavBarStyle.css";
 import Cartwidget from "../../common/CartWidgetContainer/Cartwidget";
 import { Link } from "react-router-dom";
 

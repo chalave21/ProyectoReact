@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "../../common/ProductCard/ProductCard";
-import "./ItemDetailContainer.css";
+import "./itemDetailContainer.css";
 import ItemCountContainer from "../../common/ItemCountContainer/ItemCountContainer";
 
 function ItemDetail({ item, onAdd, total }) {
